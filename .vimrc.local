@@ -1,0 +1,144 @@
+" keep history of undu in a file
+set undofile
+set undolevels=1000
+
+"
+" garybernhardt's improvements
+"
+set history=10000
+set autoindent
+set hlsearch
+set showmatch
+set showtabline=2
+
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
+set scrolloff=3
+" use emacs-style tab completion when selecting files, etc
+" set wildmode=longest,list
+set wildmenu
+" Fix slow O inserts
+set timeout timeoutlen=1000 ttimeoutlen=100
+" Turn folding off for real, hopefully
+set foldmethod=manual
+set nofoldenable
+" Insert only one space when joining lines that contain sentence-terminating
+" punctuation like `.`.
+set nojoinspaces
+
+
+
+
+set clipboard=unnamed
+" let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+" let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+
+" Fuzzy finder: ignore stuff that can't be opened, and generated files
+let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
+
+" Don't wait so long for the next keypress (particularly in ambigious Leader
+" situations.
+set timeoutlen=500
+
+set relativenumber
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE (thanks Gary Bernhardt)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <Leader>n :call RenameFile()<cr>
+
+" Disable Ex mode
+map Q <Nop>
+
+" Disable K looking stuff up
+map K <Nop>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" tslime mappings
+nmap <C-c>r <Plug>SetTmuxVars
+
+" bind to copy to clipboard
+map <Leader>c :set clipboard=unnamed<CR>
+
+" remove search highlight with enter
+map <CR> :nohl<CR>
+
+command! Q q " Bind :Q to :q
+command! Qall qall
+command! Tabo tabo
+command! Tabe tabe
+command! E e
+command! W w
+command! Wq wq
+command! Sav sav
+command! WQ wq
+command! AG Ag
+
+map <C-n> :NERDTreeToggle<CR>
+
+" Find config
+set ignorecase
+set smartcase
+set incsearch
+
+
+syntax enable
+" set background=light
+set background=dark
+colorscheme solarized
+
+
+
+" Tab navigation
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+noremap <leader><Left> :tabprevious<CR>
+nnoremap <leader><Right> :tabnext<CR>
+
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
+
+nnoremap <leader>v :tabe ~/.vimrc.local<CR>
+nnoremap <leader>T :tabe ~/TODO<CR>
+nnoremap <leader>f :Ag 
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<S-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+function! NumberToggle()
+ if(&relativenumber == 1)
+    set nornu
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-N> :call NumberToggle()<cr>

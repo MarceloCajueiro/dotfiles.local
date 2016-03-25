@@ -1,0 +1,33 @@
+# Heroku
+alias h="heroku"
+alias hc="heroku run rails console"
+alias hl="heroku logs -t"
+alias hr="heroku run"
+
+# Bundler
+alias be="bundle exec"
+
+# Rails
+alias rc="rails console"
+alias rs="rails server"
+alias rk="rake"
+alias routes="rake routes"
+alias rt="routes"
+
+# Zeus
+alias z="zeus"
+alias zst="zeus start"
+alias zk="zeus rake"
+alias zs="zeus s"
+alias zc="zeus c"
+
+# Zsh
+alias aliases="vim ~/.aliases.local"
+alias reload="source ~/.zshrc"
+
+alias tmux="tmux -u -2"
+
+alias subl="reattach-to-user-namespace subl"
+alias atom="reattach-to-user-namespace atom"
+alias atom="reattach-to-user-namespace open"
+alias atom="reattach-to-user-namespace github"

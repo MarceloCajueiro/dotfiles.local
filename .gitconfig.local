@@ -1,0 +1,8 @@
+[user]
+  name = Marcelo Cajueiro
+  email = marcelocajueiro@gmail.com
+[alias]
+  pom = pull origin master
+  dc = diff --cached
+  nfmerge = merge --no-ff
+  cp = cherry-pick
