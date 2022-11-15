@@ -27,9 +27,6 @@ set nofoldenable
 " punctuation like `.`.
 set nojoinspaces
 
-
-
-
 set clipboard=unnamed
 " let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 " let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
@@ -99,11 +96,10 @@ set incsearch
 
 
 syntax enable
-" set background=light
-set background=dark
+
+" Theme config
+set background=dark " or light
 colorscheme solarized
-
-
 
 " Tab navigation
 noremap <leader>1 1gt

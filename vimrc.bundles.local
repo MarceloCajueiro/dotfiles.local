@@ -1,0 +1,27 @@
+" Plug 'rking/ag.vim'
+" Plug 'christoomey/vim-tmux-navigator'
+" Plug 'jgdavey/tslime.vim'
+" Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdtree'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'fatih/vim-go'
+" Plug 'kana/vim-textobj-user'
+" Plug 'nelstrom/vim-textobj-rubyblock'
+" Plug 'tpope/vim-rake'
+
+" Snippets
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+
+" Clojure plugins
+" Source: https://thoughtbot.com/blog/writing-clojure-in-vim
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-salve'
+Plug 'kien/rainbow_parentheses.vim'
+
+" Themes
+Plug 'ericbn/vim-solarized'
